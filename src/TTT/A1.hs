@@ -1,6 +1,5 @@
 module TTT.A1 where
 import Data.Char (toUpper)
-import Data.Sequence (Seq(Empty))
 
 
 -- Q#01
@@ -33,24 +32,41 @@ data GameState = XWON | OWON | TIE | INPROGRESS deriving (Show, Eq)
 
 -- Q#08
 type Player = Square
-type Row = [Square]
+type Row = [Square ]
 type Line = [Square]
 type Board = [Row]
 type Move = (Int, Int)
 -- Q#09
 
-getFirstPlayer = undefined
+getFirstPlayer :: Bool -> Player
+getFirstPlayer pl = if pl then X else O
 
-getFirstPlayer_ = undefined
+getFirstPlayer_ :: Bool -> Player
+getFirstPlayer_ pl
+    | pl = X
+    | not pl = O
+    | otherwise = Empty
+
 
 -- Q#10
-
-showGameState = undefined
+showGameState :: GameState -> String
+showGameState  state = case state of 
+  XWON -> "Player X has won"
+  OWON -> "Player O has won"
+  TIE -> "It is a TIE"
+  INPROGRESS -> "Game is ON"
 
 -- Q#11
+switchPlayer :: Player->Player
+switchPlayer X = O
+switchPlayer O = X
+switchPlayer Empty = Empty
 
-switchPlayer = undefined
+
 
 -- Q#12
-
-showSquare = undefined
+showSquare :: Square -> String
+showSquare s = case s of  
+  X -> show X
+  O -> show O
+  Empty -> "_"
