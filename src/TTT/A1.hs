@@ -1,37 +1,42 @@
 module TTT.A1 where
-
 import Data.Char (toUpper)
+import Data.Sequence (Seq(Empty))
+
 
 -- Q#01
-
-_SIZE_ = undefined
+_SIZE_ :: Integer
+_SIZE_ = 3
 
 -- Q#02
-
-_DISPLAY_LOGO_ = undefined
+_DISPLAY_LOGO_ :: Bool
+_DISPLAY_LOGO_ = True
 
 -- Q#03
-
-convertRowIndex = undefined
+convertRowIndex :: Char -> Int
+convertRowIndex c = fromEnum(toUpper c) - 65
 
 -- Q#04
-
-_INVALID_MOVE_ = undefined
+_INVALID_MOVE_ :: (Int, Int)
+_INVALID_MOVE_ = (-1, -1)
 
 -- Q#05
-
-_SEP_ = undefined
+_SEP_ :: [Char]
+_SEP_ =  ['_','|','_']
 
 -- Q#06
 
-data Square
+data Square = X | O | Empty deriving (Show, Eq)
 
 -- Q#07
 
-data GameState
+data GameState = XWON | OWON | TIE | INPROGRESS deriving (Show, Eq)
 
 -- Q#08
-
+type Player = Square
+type Row = [Square]
+type Line = [Square]
+type Board = [Row]
+type Move = (Int, Int)
 -- Q#09
 
 getFirstPlayer = undefined
