@@ -3,7 +3,7 @@ import Data.Char (toUpper)
 
 
 -- Q#01
-_SIZE_ :: Integer
+_SIZE_ :: Int
 _SIZE_ = 3
 
 -- Q#02
@@ -32,7 +32,7 @@ data GameState = XWON | OWON | TIE | INPROGRESS deriving (Show, Eq)
 
 -- Q#08
 type Player = Square
-type Row = [Square ]
+type Row = [Square]
 type Line = [Square]
 type Board = [Row]
 type Move = (Int, Int)
